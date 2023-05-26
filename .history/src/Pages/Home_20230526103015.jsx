@@ -2,7 +2,11 @@ import React from "react";
 import { useGetFibreIconsApiQuery } from "../services/fibreIconsApi";
 
 const Home = () => {
-    const { data: iconsData, error: errorIcon, isLoading: isLoadingIcon } = useGetFibreIconsApiQuery();
+  const {
+    data: iconsData,
+    error: errorIcon,
+    isLoading: isLoadingIcon,
+  } = useGetFibreIconsQuery();
 
   console.log("Icons data", iconsData);
   return (

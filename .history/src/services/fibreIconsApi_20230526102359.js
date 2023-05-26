@@ -21,7 +21,7 @@ const fibreIconsApi = createApi({
 });
 
 export const {
-  useGetFibreIconsApiQuery, // Update the function name here
+  useGetFibreIconsQuery,
 } = fibreIconsApi;
 
 export default fibreIconsApi;
