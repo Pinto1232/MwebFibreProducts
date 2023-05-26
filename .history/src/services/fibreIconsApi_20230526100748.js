@@ -15,8 +15,12 @@ const fibreIconsApi = createApi({
   }),
   endpoints: (builder) => ({
     getFibreIconsApi: builder.query({
-      query: () => "/media/images/providers",
+      query: () => "/packages",
     }),
+    getPackageById: builder.query({
+      query: (id) => `/packages/${id}`,
+    }),
+  
   }),
 });
 

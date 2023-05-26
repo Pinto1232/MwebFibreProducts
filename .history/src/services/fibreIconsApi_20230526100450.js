@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const fibreIconsApi = createApi({
   reducerPath: "fibreIconsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://www.mweb.co.za",
+    baseUrl: "https://apigw.mweb.co.za/prod/baas/proxy",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
       if (token) {
@@ -15,8 +15,12 @@ const fibreIconsApi = createApi({
   }),
   endpoints: (builder) => ({
     getFibreIconsApi: builder.query({
-      query: () => "/media/images/providers",
+      query: () => "/packages",
     }),
+    getPackageById: builder.query({
+      query: (id) => `/packages/${id}`,
+    }),
+  
   }),
 });
 
