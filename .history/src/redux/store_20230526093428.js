@@ -13,9 +13,7 @@ export default configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      fibreIconsApi.middleware,
-      fibreMultipleSelectProvidersApi.middleware,
-      fibreProductsApi.middleware,
-      fibrePriceRangeApi.middleware
+      /* studentApi.middleware,
+      packageApi.middleware */
     ),
 });

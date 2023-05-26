@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+/* import studentApi from '../services/studentApi';
+import packageApi from '../services/packageApi'; */
 import fibreIconsApi from '../services/fibreIconsApi';
 import fibreMultipleSelectProvidersApi from '../services/fibreMultipleSelectProvidersApi';
 import fibreProductsApi from '../services/fibreProductsApi';
@@ -6,16 +8,12 @@ import fibrePriceRangeApi from '../services/fibrePriceRangeApi';
 
 export default configureStore({
   reducer: {
-    [fibreIconsApi.reducerPath]: fibreIconsApi.reducer,
-    [fibreMultipleSelectProvidersApi.reducerPath]: fibreMultipleSelectProvidersApi.reducer,
-    [fibreProductsApi.reducerPath]: fibreProductsApi.reducer,
-    [fibrePriceRangeApi.reducerPath]: fibrePriceRangeApi.reducer,
+    /* [studentApi.reducerPath]: studentApi.reducer,
+    [packageApi.reducerPath]: packageApi.reducer, */
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      fibreIconsApi.middleware,
-      fibreMultipleSelectProvidersApi.middleware,
-      fibreProductsApi.middleware,
-      fibrePriceRangeApi.middleware
+      /* studentApi.middleware,
+      packageApi.middleware */
     ),
 });
