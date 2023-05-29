@@ -32,7 +32,7 @@ const Home = () => {
     <div style={{ display: "grid" }}>
       <h1>Home</h1>
       <div style={{ display: "grid" }}>
-        {Array.isArray(providerInfo) && providerInfo.map((provider) => (
+        {providerInfo.map((provider) => (
           <img
             key={provider.code}
             src={`${logoBaseURL}/${provider.code}.png`}

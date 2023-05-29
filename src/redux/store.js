@@ -1,21 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import fibreIconsApi from '../services/fibreIconsApi';
-/* import fibreMultipleSelectProvidersApi from '../services/fibreMultipleSelectProvidersApi';
-import fibreProductsApi from '../services/fibreProductsApi';
-import fibrePriceRangeApi from '../services/fibrePriceRangeApi';
- */
-export default configureStore({
+import providerReducer from './reducers';
+
+const store = configureStore({
   reducer: {
-    [fibreIconsApi.reducerPath]: fibreIconsApi.reducer,
-    /* [fibreMultipleSelectProvidersApi.reducerPath]: fibreMultipleSelectProvidersApi.reducer,
-    [fibreProductsApi.reducerPath]: fibreProductsApi.reducer,
-    [fibrePriceRangeApi.reducerPath]: fibrePriceRangeApi.reducer, */
+    provider: providerReducer,
+    // Other reducers...
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      fibreIconsApi.middleware,
-      /* fibreMultipleSelectProvidersApi.middleware,
-      fibreProductsApi.middleware,
-      fibrePriceRangeApi.middleware */
-    ),
 });
+
+export default store;

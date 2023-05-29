@@ -11,7 +11,13 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchProviderInfo())
       .then((data) => {
-        console.log(data);
+        // Parse the HTML payload
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data.payload, "text/html");
+
+        // Extract the data from the parsed HTML
+        const extractedData = doc.body.textContent;
+        console.log(extractedData);
       })
       .catch((error) => {
         console.log(error);
@@ -26,20 +32,17 @@ const Home = () => {
     return <div>Error: {error}</div>;
   }
 
-  const logoBaseURL = "https://www.mweb.co.za/media/images/providers";
-
   return (
     <div style={{ display: "grid" }}>
       <h1>Home</h1>
-      <div style={{ display: "grid" }}>
-        {Array.isArray(providerInfo) && providerInfo.map((provider) => (
+      {Array.isArray(providerInfo) &&
+        providerInfo.map((provider) => (
           <img
             key={provider.code}
-            src={`${logoBaseURL}/${provider.code}.png`}
+            src={`https://www.mweb.co.za/media/images/providers/${provider.code}.png`}
             alt={provider.name}
           />
         ))}
-      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProviderInfo } from "../redux/actions";
+import { html, render } from "lit-html";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,22 @@ const Home = () => {
       });
   }, [dispatch]);
 
+  useEffect(() => {
+    const container = document.getElementById("provider-container");
+
+    const providersTemplate = () => html`
+      <div style="display: grid">
+        ${Array.isArray(providerInfo) && providerInfo.map((provider) => html`<img src="${provider.url}" alt="${provider.name}">`)}
+      </div>
+    `;
+
+    render(providersTemplate(), container);
+
+    return () => {
+      render(html``, container);
+    };
+  }, [providerInfo]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -26,22 +43,7 @@ const Home = () => {
     return <div>Error: {error}</div>;
   }
 
-  const logoBaseURL = "https://www.mweb.co.za/media/images/providers";
-
-  return (
-    <div style={{ display: "grid" }}>
-      <h1>Home</h1>
-      <div style={{ display: "grid" }}>
-        {Array.isArray(providerInfo) && providerInfo.map((provider) => (
-          <img
-            key={provider.code}
-            src={`${logoBaseURL}/${provider.code}.png`}
-            alt={provider.name}
-          />
-        ))}
-      </div>
-    </div>
-  );
+  return <div id="provider-container"></div>;
 };
 
 export default Home;

@@ -26,20 +26,16 @@ const Home = () => {
     return <div>Error: {error}</div>;
   }
 
-  const logoBaseURL = "https://www.mweb.co.za/media/images/providers";
-
   return (
     <div style={{ display: "grid" }}>
-      <h1>Home</h1>
-      <div style={{ display: "grid" }}>
-        {Array.isArray(providerInfo) && providerInfo.map((provider) => (
-          <img
-            key={provider.code}
-            src={`${logoBaseURL}/${provider.code}.png`}
-            alt={provider.name}
-          />
-        ))}
-      </div>
+       <h1>Home</h1>
+      {Array.isArray(providerInfo) && providerInfo.map((provider) => (
+        <img
+          key={provider.code}
+          src={`https://www.mweb.co.za/media/images/providers/${provider.code}.png`}
+          alt={provider.name}
+        />
+      ))}
     </div>
   );
 };
