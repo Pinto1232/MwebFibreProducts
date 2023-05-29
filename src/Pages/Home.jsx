@@ -95,13 +95,13 @@ const Home = () => {
         gap={8}
       >
       
-        <Card 
-          title="Pinto Manuel"
+      <Card 
+          title="100Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
-         <Card 
-          title="Pinto Manuel"
+        <Card 
+          title="50Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
@@ -120,12 +120,12 @@ const Home = () => {
         gap={8}
       >
         <Card 
-          title="Pinto Manuel"
+          title="100Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
         <Card 
-          title="Pinto Manuel"
+          title="50Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />

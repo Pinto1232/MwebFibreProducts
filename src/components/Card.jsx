@@ -17,18 +17,22 @@ const Card = ({ title, description, imageUrl, cardWidth }) => {
           {title}
         </Text>
         <Box>
-          <Image mt={8} src={imageUrl}  objectFit="cover" />
+          <Image mt={10} src={imageUrl} maxW={'80%'}  objectFit="cover" />
         </Box>
-        <Text>{description}</Text>
+        <Box>
+        <Text fontSize="xl" fontWeight="bold" mb={2}>
+          {description}
+        </Text>
         <DealTypeButton
           bgColor="red.400"
           color="#fff"
           size={"sm"}
-          width={"160px"}
+          width={"120px"}
           label={"Check coverage"}
           borderRadius={0}
           shadow={"lg"}
         />
+        </Box>
       </Flex>
     </Flex>
   );
