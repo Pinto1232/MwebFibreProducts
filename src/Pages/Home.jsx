@@ -5,9 +5,10 @@ import { Box, Flex } from "@chakra-ui/react";
 import CustomHeading from "../components/CustomHeading";
 import CustomParagraph from "../components/CustomParagraph";
 import FilterBy from "../components/FilterBy";
-import speedOptions from  "../data/priceOptions.json";
-import priceOptions from "../data/priceOptions.json"
-
+import speedOptions from "../data/priceOptions.json";
+import priceOptions from "../data/priceOptions.json";
+import Card from "../components/Card";
+import imageUrl from "../assets/provider-evotel.png"
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,54 @@ const Home = () => {
         onSpeedChange={handleSpeedChange}
         onPriceChange={handlePriceChange}
       />
+
+      <Flex
+        align="start"
+        maxW="5xl"
+        mx="auto"
+        mt={10}
+        borderWidth={0}
+        rounded="md"
+        alignItems="center"
+        justify={'center'}
+        gap={8}
+      >
+      
+        <Card 
+          title="Pinto Manuel"
+          description="Description card"
+          imageUrl={imageUrl}
+        />
+         <Card 
+          title="Pinto Manuel"
+          description="Description card"
+          imageUrl={imageUrl}
+        />
+      </Flex>
+
+
+      <Flex
+        align="start"
+        maxW="5xl"
+        mx="auto"
+        mt={10}
+        borderWidth={0}
+        rounded="md"
+        alignItems="center"
+        justify={'center'}
+        gap={8}
+      >
+        <Card 
+          title="Pinto Manuel"
+          description="Description card"
+          imageUrl={imageUrl}
+        />
+        <Card 
+          title="Pinto Manuel"
+          description="Description card"
+          imageUrl={imageUrl}
+        />
+      </Flex>
     </Box>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
 
-const DealTypeButton = ({ label, colorScheme, color, bgColor, borderRadius, size, width, ...rest }) => {
+const DealTypeButton = ({ label, shadow, colorScheme, color, bgColor, borderRadius, size, width, ...rest }) => {
   return (
     <Button
       colorScheme={colorScheme}
@@ -10,6 +10,7 @@ const DealTypeButton = ({ label, colorScheme, color, bgColor, borderRadius, size
       color={color}
       bg={bgColor}
       borderRadius={borderRadius}
+      shadow={shadow}
       px={4}
       py={2}
       {...rest}

@@ -26,7 +26,7 @@ const FilterBy = ({
     <Flex
       spacing={4}
       align="start"
-      maxW="6xl"
+      maxW="7xl"
       mt={10}
       mx="auto"
       p={3}
@@ -93,7 +93,7 @@ const FilterBy = ({
           color={'#fff'}
           size="md"
           borderRadius={0}
-          width={400}
+          width={'500px'}
         />
       </Box>
     </Flex>
