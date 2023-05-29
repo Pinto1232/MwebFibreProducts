@@ -1,15 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProviderInfo } from "../redux/actions";
 import { Box, Flex } from "@chakra-ui/react";
 import CustomHeading from "../components/CustomHeading";
 import CustomParagraph from "../components/CustomParagraph";
+import FilterBy from "../components/FilterBy";
+import speedOptions from  "../data/priceOptions.json";
+import priceOptions from "../data/priceOptions.json"
+
 
 const Home = () => {
   const dispatch = useDispatch();
   const { providerInfo, loading, error } = useSelector(
     (state) => state.provider
   );
+
+  const [selectedSpeed, setSelectedSpeed] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+
+  const handleSpeedChange = (event) => {
+    setSelectedSpeed(event.target.value);
+  };
+
+  const handlePriceChange = (event) => {
+    setSelectedPrice(event.target.value);
+  };
 
   useEffect(() => {
     dispatch(fetchProviderInfo())
@@ -57,6 +72,15 @@ const Home = () => {
           </div>
         ))}
       </Flex>
+
+      <FilterBy
+        speedOptions={speedOptions}
+        priceOptions={priceOptions}
+        selectedSpeed={selectedSpeed}
+        selectedPrice={selectedPrice}
+        onSpeedChange={handleSpeedChange}
+        onPriceChange={handlePriceChange}
+      />
     </Box>
   );
 };
