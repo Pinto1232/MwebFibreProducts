@@ -34,20 +34,13 @@ const Home = () => {
   }
 
   return (
-    <Box mt={10}>
+    <Box>
       <CustomHeading size="xl" align="center">
         Fibre Products
       </CustomHeading>
 
-      <CustomParagraph
-        size="lg"
-        align="center"
-        color="black"
-        marginTop={4}
-        marginButton={4}
-      >
-        Select a Fibre infrastructure provider below, browse the products
-        available and complete a coverage search
+      <CustomParagraph size="lg" align="center" color="blue">
+        This is a custom paragraph component.
       </CustomParagraph>
 
       <Flex justify="center" align="center" gap={8}>

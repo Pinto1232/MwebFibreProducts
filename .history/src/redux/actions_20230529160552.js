@@ -1,18 +1,29 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import providerInfoData from "../data/providerInfo.json";
+import axios from "axios";
 
 export const fetchProviderInfo = createAsyncThunk(
   "provider/fetchProviderInfo",
   async () => {
     try {
-      const providerInfo = providerInfoData.map(({ code, name, url }) => {
+      const response = await axios.get(
+        "https://www.mweb.co.za/media/images/providers"
+      );
+
+      const logoBaseURL = "https://www.mweb.co.za/media/images/providers";
+
+
+      const providerInfo = Object.keys(response.data).map((code) => {
+        const name = response.data[code];
         const formattedCode = code.replace(/\s/g, "").toLowerCase();
         return {
           code: formattedCode,
           name,
-          url,
+          url: `${logoBaseURL}/provider-${formattedCode}.png`,
         };
       });
+      
+      
+      
 
       console.log(providerInfo); // Log the providerInfo array
 
@@ -22,3 +33,4 @@ export const fetchProviderInfo = createAsyncThunk(
     }
   }
 );
+

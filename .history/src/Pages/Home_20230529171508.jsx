@@ -39,13 +39,7 @@ const Home = () => {
         Fibre Products
       </CustomHeading>
 
-      <CustomParagraph
-        size="lg"
-        align="center"
-        color="black"
-        marginTop={4}
-        marginButton={4}
-      >
+      <CustomParagraph  size="lg" align="center" color="black">
         Select a Fibre infrastructure provider below, browse the products
         available and complete a coverage search
       </CustomParagraph>

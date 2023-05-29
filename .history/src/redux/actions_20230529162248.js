@@ -10,7 +10,7 @@ export const fetchProviderInfo = createAsyncThunk(
         return {
           code: formattedCode,
           name,
-          url,
+          url: `https://apigw.mweb.co.za/prod/baas/proxy${url}`,
         };
       });
 

@@ -10,7 +10,7 @@ export const fetchProviderInfo = createAsyncThunk(
         return {
           code: formattedCode,
           name,
-          url,
+          url: `https://www.mweb.co.za/media/images/providers${url}`,
         };
       });
 

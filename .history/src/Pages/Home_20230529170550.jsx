@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProviderInfo } from "../redux/actions";
 import { Box, Flex } from "@chakra-ui/react";
 import CustomHeading from "../components/CustomHeading";
-import CustomParagraph from "../components/CustomParagraph";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -34,21 +33,10 @@ const Home = () => {
   }
 
   return (
-    <Box mt={10}>
-      <CustomHeading size="xl" align="center">
+    <Box>
+      <CustomHeading size="xl" align="left">
         Fibre Products
       </CustomHeading>
-
-      <CustomParagraph
-        size="lg"
-        align="center"
-        color="black"
-        marginTop={4}
-        marginButton={4}
-      >
-        Select a Fibre infrastructure provider below, browse the products
-        available and complete a coverage search
-      </CustomParagraph>
 
       <Flex justify="center" align="center" gap={8}>
         {providerInfo.slice(0, 10).map((provider) => (
