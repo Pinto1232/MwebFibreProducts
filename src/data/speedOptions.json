@@ -1,0 +1,5 @@
+[
+  { "value": "10", "label": "10 Mbps" },
+  { "value": "50", "label": "50 Mbps" },
+  { "value": "100", "label": "100 Mbps" }
+]
