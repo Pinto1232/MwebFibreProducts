@@ -1,5 +1,5 @@
 [
-  { "value": "50", "label": "$50" },
-  { "value": "100", "label": "$100" },
-  { "value": "200", "label": "$200" }
+  { "value": "50", "label": "R50" },
+  { "value": "100", "label": "R100" },
+  { "value": "200", "label": "R200" }
 ]

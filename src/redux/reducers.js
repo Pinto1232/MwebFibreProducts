@@ -1,14 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchProviderInfo } from './actions';
+import { createSlice } from "@reduxjs/toolkit";
+import {
+  fetchProviderInfo,
+  fetchPriceRanges,
+  updatePriceRanges,
+} from "../redux/actions";
 
 const initialState = {
   providerInfo: [],
   loading: false,
   error: null,
+  priceRanges: [],
 };
 
 const providerSlice = createSlice({
-  name: 'provider',
+  name: "provider",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -25,6 +30,22 @@ const providerSlice = createSlice({
       .addCase(fetchProviderInfo.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(fetchPriceRanges.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchPriceRanges.fulfilled, (state, action) => {
+        state.priceRanges = action.payload;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(fetchPriceRanges.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(updatePriceRanges, (state, action) => {
+        state.priceRanges = action.payload;
       });
   },
 });

@@ -8,7 +8,7 @@ import FilterBy from "../components/FilterBy";
 import speedOptions from "../data/priceOptions.json";
 import priceOptions from "../data/priceOptions.json";
 import Card from "../components/Card";
-import imageUrl from "../assets/provider-evotel.png"
+import imageUrl from "../assets/provider-evotel.png";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -91,22 +91,20 @@ const Home = () => {
         borderWidth={0}
         rounded="md"
         alignItems="center"
-        justify={'center'}
+        justify={"center"}
         gap={8}
       >
-      
-      <Card 
+        <Card
           title="100Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
-        <Card 
+        <Card
           title="50Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
       </Flex>
-
 
       <Flex
         align="start"
@@ -116,20 +114,31 @@ const Home = () => {
         borderWidth={0}
         rounded="md"
         alignItems="center"
-        justify={'center'}
+        justify={"center"}
         gap={8}
       >
-        <Card 
+        <Card
           title="100Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
-        <Card 
+        <Card
           title="50Mbs uncapped Fibre"
           description="Description card"
           imageUrl={imageUrl}
         />
       </Flex>
+      <Box
+        maxW="5xl"
+        mx="auto"
+        borderWidth={0}
+        alignItems="center"
+        justify={"center"}
+        textAlign={"center"}
+      >
+        {/* Price Ranges Filter component */}
+        {/* <PriceRangesFilter /> */}
+      </Box>
     </Box>
   );
 };
