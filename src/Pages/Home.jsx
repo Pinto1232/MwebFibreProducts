@@ -136,8 +136,6 @@ const Home = () => {
         justify={"center"}
         textAlign={"center"}
       >
-        {/* Price Ranges Filter component */}
-        {/* <PriceRangesFilter /> */}
       </Box>
     </Box>
   );

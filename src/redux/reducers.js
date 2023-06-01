@@ -49,5 +49,4 @@ const providerSlice = createSlice({
       });
   },
 });
-
 export default providerSlice.reducer;
