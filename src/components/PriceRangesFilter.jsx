@@ -4,14 +4,11 @@ import { fetchPriceRanges, updatePriceRanges } from "../redux/actions";
 import CustomHeading from "./CustomHeading";
 import { Box, Flex, Text } from "@chakra-ui/react";
 
-
 const PriceRangesFilter = () => {
   const priceRanges = useSelector((state) => state.provider.priceRanges);
   const [selectedRange, setSelectedRange] = useState(null);
-  const [selectedRangeData, setSelectedRangeData] = useState(null);
+  const [selectedRangeData, setSelectedRangeData] = useState([]);
   const dispatch = useDispatch();
-
-  console.log("Data to be consumed", selectedRangeData);
 
   useEffect(() => {
     dispatch(fetchPriceRanges());
@@ -32,7 +29,7 @@ const PriceRangesFilter = () => {
       fetchData(min, max);
     } else {
       setSelectedRange(null);
-      setSelectedRangeData();
+      setSelectedRangeData([]);
     }
   };
 
@@ -42,8 +39,7 @@ const PriceRangesFilter = () => {
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
-        console.log(`Fetched data for range: min = ${min}, max = ${max}`);
-        console.log("Log data", data);
+        console.log("Fetched data:", data);
         setSelectedRangeData(data);
       })
       .catch((error) => {
@@ -81,27 +77,20 @@ const PriceRangesFilter = () => {
             </Box>
           ))}
       </Flex>
-      <Flex mx="auto" maxW="5xl" gap={2}>
-        {selectedRange && (
-          <Box mt={4}>
-            <Box>
-              <Text fontWeight="bold">R{selectedRange.max}</Text>
-            </Box>
-          </Box>
-        )}
-        {selectedRangeData && selectedRangeData.length > 0 && (
-          <Box mt={4}>
-            <Box>
-              {selectedRangeData.map((product) => (
-                <p key={product.productCode}>
-                  {product.products.productName} -{" "}
-                  {product.products.chargePeriod}
-                </p>
-              ))}
-            </Box>
-          </Box>
-        )}
-      </Flex>
+      <Box mx="auto" maxW="5xl" gap={2} mb={8}>
+        {selectedRangeData &&
+          selectedRangeData
+            .flatMap((item) => item.products)
+            .slice(0, 5)
+            .map((product, index) => (
+                <Text key={`${product.promoCode}-${index}`}>
+                  <Flex gap={4}>
+                  {product.productDescription}
+                  <Text fontWeight="bold">R{selectedRange.max}</Text>
+                  </Flex>
+                </Text>
+            ))}
+      </Box>
     </Box>
   );
 };

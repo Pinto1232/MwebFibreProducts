@@ -37,4 +37,3 @@ export const updatePriceRanges = (priceRanges) => ({
   type: "provider/updatePriceRanges",
   payload: priceRanges,
 });
-
