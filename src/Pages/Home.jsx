@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProviderInfo } from "../redux/actions";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
 import CustomHeading from "../components/CustomHeading";
 import CustomParagraph from "../components/CustomParagraph";
 import FilterBy from "../components/FilterBy";
@@ -18,6 +18,7 @@ const Home = () => {
 
   const [selectedSpeed, setSelectedSpeed] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
+  const [showSpinner, setShowSpinner] = useState(true);
 
   const handleSpeedChange = (event) => {
     setSelectedSpeed(event.target.value);
@@ -35,14 +36,22 @@ const Home = () => {
         } else {
           console.log("data is not an array");
         }
+        setTimeout(() => {
+          setShowSpinner(false);
+        }, 2000);
       })
       .catch((error) => {
         console.log(error);
+        setShowSpinner(false);
       });
   }, [dispatch]);
 
-  if (loading) {
-    return <div>Loading...</div>;
+  if (loading || showSpinner) {
+    return (
+      <Flex justify="center" align="center" h="100vh">
+        <Spinner size="xl" color="blue.500" />
+      </Flex>
+    );
   }
 
   if (error) {
@@ -135,8 +144,7 @@ const Home = () => {
         alignItems="center"
         justify={"center"}
         textAlign={"center"}
-      >
-      </Box>
+      ></Box>
     </Box>
   );
 };
