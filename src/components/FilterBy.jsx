@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { Select, Flex, Box } from "@chakra-ui/react";
 import CustomParagraph from "./CustomParagraph";
 import DealTypeButton from "./DealTypeButton";
@@ -11,16 +11,7 @@ const FilterBy = ({
   onSpeedChange,
   onPriceChange,
 }) => {
-  const [showSpeedDropdown, setShowSpeedDropdown] = useState(false);
-  const [showPriceDropdown, setShowPriceDropdown] = useState(false);
 
-  const handleSpeedClick = () => {
-    setShowSpeedDropdown(true);
-  };
-
-  const handlePriceClick = () => {
-    setShowPriceDropdown(true);
-  };
 
   return (
     <Flex
