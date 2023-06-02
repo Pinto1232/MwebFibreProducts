@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProviderInfo } from "../redux/actions";
-import { Box, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Image, Spinner } from "@chakra-ui/react";
 import CustomHeading from "../components/CustomHeading";
 import CustomParagraph from "../components/CustomParagraph";
 import FilterBy from "../components/FilterBy";
@@ -75,11 +75,17 @@ const Home = () => {
         available and complete a coverage search
       </CustomParagraph>
 
-      <Flex justify="center" align="center" gap={8}>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        justify="center"
+        align="center"
+        gap={{ base: 4, md: 8 }}
+        wrap="wrap"
+      >
         {providerInfo.slice(0, 10).map((provider) => (
-          <div key={provider.code}>
-            <img src={provider.url} alt={provider.name} />
-          </div>
+          <Box key={provider.code}>
+            <Image src={provider.url} alt={provider.name} />
+          </Box>
         ))}
       </Flex>
 

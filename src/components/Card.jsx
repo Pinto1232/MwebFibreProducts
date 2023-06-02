@@ -7,6 +7,7 @@ import CustomHeading from "./CustomHeading";
 const Card = ({ title, description, imageUrl, cardWidth }) => {
   return (
     <Flex
+      direction={{ base: "column", sm: "row" }}
       maxW="lg"
       borderWidth="1px"
       borderRadius="lg"
@@ -16,7 +17,7 @@ const Card = ({ title, description, imageUrl, cardWidth }) => {
       whiteSpace="nowrap"
       py={2}
     >
-      <Flex p={4} gap={2}>
+      <Flex direction={{ base: "column", sm: "row" }} p={4} gap={2}>
         <Text fontSize="xl" fontWeight="bold" mb={2}>
           {title}
           <CustomParagraph>

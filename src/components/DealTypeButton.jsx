@@ -6,7 +6,7 @@ const DealTypeButton = ({ label, shadow, colorScheme, marginTop, color, bgColor,
     <Button
       colorScheme={colorScheme}
       size={size}
-      width={width}
+      width={width ? width : ["100%", "auto"]} 
       color={color}
       bg={bgColor}
       borderRadius={borderRadius}

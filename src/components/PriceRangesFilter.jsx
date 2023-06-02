@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPriceRanges, updatePriceRanges } from "../redux/actions";
 import CustomHeading from "./CustomHeading";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 
 const PriceRangesFilter = () => {
   const priceRanges = useSelector((state) => state.provider.priceRanges);
@@ -55,14 +55,21 @@ const PriceRangesFilter = () => {
       borderWidth={1}
       mx="auto"
       maxW="6xl"
-      gap={4}
+      px={{ base: 4, md: 8 }} // responsive padding
     >
       <Box mx="auto" maxW="5xl">
         <CustomHeading marginTop={5} align="start" size="lg">
           Price ranges
         </CustomHeading>
       </Box>
-      <Flex whiteSpace="nowrap" mx="auto" maxW="5xl" mt={4} gap={8}>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        whiteSpace="nowrap"
+        mx="auto"
+        maxW="5xl"
+        mt={4}
+        gap={8}
+      >
         {Array.isArray(priceRanges) &&
           priceRanges.slice(0, 6).map((range) => (
             <Box key={`${range.min}-${range.max}`}>
@@ -77,20 +84,20 @@ const PriceRangesFilter = () => {
             </Box>
           ))}
       </Flex>
-      <Box mx="auto" maxW="5xl" gap={2} mb={8}>
+      <Stack spacing={4} mx="auto" maxW="5xl" mb={8}>
         {selectedRangeData &&
           selectedRangeData
             .flatMap((item) => item.products)
             .slice(0, 5)
             .map((product, index) => (
-                <Text key={`${product.promoCode}-${index}`}>
-                  <Flex gap={4}>
+              <Text key={`${product.promoCode}-${index}`}>
+                <Flex gap={4}>
                   {product.productDescription}
                   <Text fontWeight="bold">R{selectedRange.max}</Text>
-                  </Flex>
-                </Text>
+                </Flex>
+              </Text>
             ))}
-      </Box>
+      </Stack>
     </Box>
   );
 };

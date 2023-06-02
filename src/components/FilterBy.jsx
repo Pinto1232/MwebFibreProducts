@@ -12,11 +12,11 @@ const FilterBy = ({
   onPriceChange,
 }) => {
 
-
   return (
     <Flex
       spacing={4}
       align="start"
+      direction={{ base: 'column', md: 'row' }} 
       maxW="7xl"
       mt={10}
       mx="auto"
@@ -31,7 +31,7 @@ const FilterBy = ({
         <CustomParagraph align="start" fontSize="lg">
           Filter By:
         </CustomParagraph>
-        <Flex gap={4} align="center">
+        <Flex direction={{ base: 'column', md: 'row' }} gap={4} align="center"> 
           <Select
             placeholder="Speed"
             value={selectedSpeed}
@@ -60,7 +60,7 @@ const FilterBy = ({
           </Select>
         </Flex>
       </Box>
-      <Box>
+      <Box mt={{ base: 4, md: 0 }}> 
         <CustomParagraph align="start" fontSize="lg">
           Deal Type:
         </CustomParagraph>
@@ -70,7 +70,7 @@ const FilterBy = ({
           color={'#fff'}
           size="md"
           borderRadius={0}
-          width={'500px'}
+          width={{ base: '100%', md: '500px' }} 
         />
       </Box>
     </Flex>
