@@ -42,19 +42,12 @@ const FilterBy = ({
         </CustomParagraph>
         <Flex gap={4} align="center">
           <Select
+            placeholder="Speed"
             value={selectedSpeed}
             onChange={onSpeedChange}
-            onClick={handleSpeedClick}
-            onFocus={handleSpeedClick}
             width="120px"
           >
-            {!showSpeedDropdown && (
-              <option disabled selected hidden>
-                Speed
-              </option>
-            )}
-            {showSpeedDropdown &&
-              Array.isArray(speedOptions) &&
+            {Array.isArray(speedOptions) &&
               speedOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
@@ -62,19 +55,12 @@ const FilterBy = ({
               ))}
           </Select>
           <Select
+            placeholder="Price"
             value={selectedPrice}
             onChange={onPriceChange}
-            onClick={handlePriceClick}
-            onFocus={handlePriceClick}
             width="120px"
           >
-            {!showPriceDropdown && (
-              <option disabled selected hidden>
-                Price
-              </option>
-            )}
-            {showPriceDropdown &&
-              Array.isArray(priceOptions) &&
+            {Array.isArray(priceOptions) &&
               priceOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
